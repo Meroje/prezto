@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='subl'
 export PAGER='less'
 
 #
@@ -77,6 +77,13 @@ unset path_file
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/bin
+  $HOME/.rbenv/bin
+  /Applications/Postgres.app/Contents/MacOS/bin
+  /usr/local/opt/php54/bin
+  /usr/local/share/npm/bin
+  /usr/local/heroku/bin
+  /usr/local/share/python
   /usr/local/{bin,sbin}
   /usr/{bin,sbin}
   /{bin,sbin}
@@ -98,4 +105,3 @@ if [[ -d "$TMPDIR" ]]; then
     mkdir -p "$TMPPREFIX"
   fi
 fi
-
