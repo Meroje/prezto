@@ -19,22 +19,3 @@ if (( $+commands[fortune] )); then
   fortune -a
   print
 fi
-
-# Activate RBENV
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# Blink red on errors
-function error_blink() {
-    blink1-tool --rgb 0xff,0,00 --blink 3 --millis=50 --delay=50 > /dev/null
-}
-
-trap error_blink HUP QUIT FPE KILL ALRM TERM
-
-# Setting for the new UTF-8 terminal support in Lion
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-# Aliases
-if [ -e "$HOME/.aliases" ]; then
-  source "$HOME/.aliases"
-fi

@@ -12,3 +12,32 @@ fi
 
 # Customize to your needs...
 
+# Activate RBENV
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export RBENV_ROOT=/usr/local/opt/rbenv
+
+# Set brew-cask install dir
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Blink red on errors
+function error_blink() {
+    blink1-tool --rgb 0xff,0,00 --blink 3 --millis=50 --delay=50 > /dev/null
+}
+
+trap error_blink HUP QUIT FPE KILL ALRM TERM
+
+# Setting for the new UTF-8 terminal support in Lion
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Aliases
+if [ -e "$HOME/.aliases" ]; then
+  source "$HOME/.aliases"
+fi
+
+# Set the list of directories that Zsh searches for completions.
+fpath=(
+  /usr/local/share/zsh-completions
+  $fpath
+)
+
