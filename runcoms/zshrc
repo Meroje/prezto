@@ -38,6 +38,7 @@ fi
 # Set the list of directories that Zsh searches for completions.
 fpath=(
   /usr/local/share/zsh-completions
+  /usr/local/share/zsh/site-functions
   $fpath
 )
 
